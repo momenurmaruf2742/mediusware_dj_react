@@ -14,7 +14,7 @@ class BaseVariantView(generic.View):
 
 class VariantView(BaseVariantView, ListView):
     template_name = 'variants/list.html'
-    paginate_by = 10
+    paginate_by = 4
 
     def get_queryset(self):
         filter_string = {}
@@ -35,6 +35,10 @@ class VariantView(BaseVariantView, ListView):
 
 class VariantCreateView(BaseVariantView, CreateView):
     pass
+
+
+class VariantEditView(BaseVariantView, UpdateView):
+    pk_url_kwarg = 'id'
 
 
 class VariantEditView(BaseVariantView, UpdateView):
